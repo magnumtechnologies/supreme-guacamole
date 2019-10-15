@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+   node:
+      image: node:latest
+      restart: always
+      init: true
+      container_name: node
+      ports:
+        -  "8080:8080"
+      volumes:
+        - ./counter.json:/usr/src/foo/counter.json
+        - ./index.js:/usr/src/foo/index.js 
+        - ./package.json:/usr/src/foo/package.json
+      command: /bin/sh -c "cd /usr/src/foo/ && npm install && node /usr/src/foo/index.js"
+#      command: tail -f /dev/null 2>&1
