@@ -5,7 +5,7 @@ var logger = require('tracer').dailyfile({root:'/var/log/foo/', maxLogFiles: 10,
 const counterFile = "/usr/src/foo/counter.json";
 
 app.get('/', (req,res)=>{incrementCounter(()=>res.sendFile(counterFile))})
-app.listen(8080, ()=>console.log("Running at 8080"))
+app.listen(80, ()=>console.log("Running at 80"))
 
 async function incrementCounter(cb){
 	try{
