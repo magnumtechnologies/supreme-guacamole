@@ -6,7 +6,7 @@ services:
       init: true
       container_name: node
       ports:
-        -  "8080:8080"
+        -  "80:80"
       volumes:
         - ./counter.json:/usr/src/foo/counter.json
         - ./index.js:/usr/src/foo/index.js 
