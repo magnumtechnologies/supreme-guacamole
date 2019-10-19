@@ -11,5 +11,7 @@ services:
         - ./counter.json:/usr/src/foo/counter.json
         - ./index.js:/usr/src/foo/index.js 
         - ./package.json:/usr/src/foo/package.json
+      environment:
+        - AWS_REGION='us-west-2'
       command: /bin/sh -c "cd /usr/src/foo/ && npm install && node /usr/src/foo/index.js"
 #      command: tail -f /dev/null 2>&1

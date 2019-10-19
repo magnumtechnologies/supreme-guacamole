@@ -3,8 +3,7 @@ const app = express()
 const fs = require('fs-extra');
 var logger = require('tracer').dailyfile({root:'/var/log/foo/', maxLogFiles: 10, allLogsFileName: 'foo'});
 var aws = require('aws-sdk');
-//@TODO: configure aws creds and region using env
-aws.config.update({region: 'us-west-2'});
+aws.config.update({region: process.env.AWS_REGION});
 var cloudwatch = new aws.CloudWatch();
 const counterFile = "/usr/src/foo/counter.json";
 
